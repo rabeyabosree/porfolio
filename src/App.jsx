@@ -7,21 +7,24 @@ import ChatApp from './pages/Chatapp/ChatApp';
 import AboutPage from './pages/About/AboutPage';
 import Services from './pages/servises/Services';
 import ContactPage from './pages/contact/ContactPage';
+import Layout from './components/common/Layout';
 
 function App() {
   return (
     // Wrap everything inside the Router
     <Router>
-     <Navbar />
+      <Layout>
+        <Navbar />
         {/* Routing to Chat App */}
         <Routes>
-          <Route path="/chat" element={<ChatApp/>} />
-          <Route path="/" element={<Home/>} />
-          <Route path="/about" element={<AboutPage/>} />
-          <Route path="/service" element={<Services/>} />
-          <Route path="/contact" element={<ContactPage/>} />
+          <Route path="/chat" element={<ChatApp />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/service" element={<Services />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
-  <Footer />
+        <Footer />
+      </Layout>
     </Router>
   );
 }
