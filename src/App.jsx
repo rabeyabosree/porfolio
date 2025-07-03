@@ -8,6 +8,8 @@ import AboutPage from './pages/About/AboutPage';
 import Services from './pages/servises/Services';
 import ContactPage from './pages/contact/ContactPage';
 import Layout from './components/common/Layout';
+import MyProjects from './pages/projects/MyProjects';
+import SkillPage from './pages/skills/SkillPage';
 
 function App() {
   return (
@@ -15,12 +17,14 @@ function App() {
     <Router>
       <Layout>
         <Navbar />
-        {/* Routing to Chat App */}
+       
         <Routes>
           <Route path="/chat" element={<ChatApp />} />
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/service" element={<Services />} />
+          <Route path="/project" element={<MyProjects />} />
+          <Route path="/skills" element={<SkillPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
         <Footer />
