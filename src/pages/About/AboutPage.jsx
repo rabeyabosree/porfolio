@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import image from "../../assets/portfolioimage.jpg";
 
@@ -42,8 +41,8 @@ const AboutPage = () => {
             <strong className="text-gray-600">MERN Stack Developer</strong> with
             expertise in building scalable, high-performance web applications. I
             specialize in working with{" "}
-            <strong className="text-green-600">MongoDB, Express.js, React.js,</strong>{" "}
-            and <strong className="text-yellow-500">Node.js</strong>, creating
+            <strong >MongoDB, Express.js, React.js,</strong>{" "}
+            and <strong >Node.js</strong>, creating
             dynamic and user-friendly solutions.
           </p>
 

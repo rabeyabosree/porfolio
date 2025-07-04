@@ -19,7 +19,7 @@ function HeroPage() {
         {/* Text Section */}
         <div className="text-center px-4 sm:px-8 md:px-16 max-w-3xl mt-24 sm:mt-28">
           <motion.h1
-            className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold mb-4"
+            className="text-lg sm:text-[18px] md:text-2xl lg:text-43xl font-bold mb-4"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -47,7 +47,7 @@ function HeroPage() {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-3xl sm:text-4xl text-blue-600 hover:text-blue-800 transition"
+                className="text-2xl sm:text-3xl text-blue-600 hover:text-blue-800 transition"
               >
                 <FaLinkedin />
               </motion.div>
@@ -62,7 +62,7 @@ function HeroPage() {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-3xl sm:text-4xl text-gray-800 hover:text-black transition"
+                className="text-2xl sm:text-3xl text-gray-800 hover:text-black transition"
               >
                 <FaGithub />
               </motion.div>
@@ -77,7 +77,7 @@ function HeroPage() {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-3xl sm:text-4xl text-green-500 hover:text-green-700 transition"
+                className="text-2xl sm:text-3xl text-green-500 hover:text-green-700 transition"
               >
                 <BsWhatsapp />
               </motion.div>
@@ -92,7 +92,7 @@ function HeroPage() {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-3xl sm:text-4xl text-blue-700 hover:text-blue-900 transition"
+                className="text-2xl sm:text-3xl text-blue-700 hover:text-blue-900 transition"
               >
                 <FaFacebook />
               </motion.div>
@@ -107,7 +107,7 @@ function HeroPage() {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-3xl sm:text-4xl text-red-600 hover:text-red-800 transition"
+                className="text-2xl sm:text-3xl text-red-600 hover:text-red-800 transition"
               >
                 <FaYoutube />
               </motion.div>
