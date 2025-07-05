@@ -5,121 +5,103 @@ import image from "../../assets/profile2.jpg";
 
 function HeroPage() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-gray-900 px-4 sm:px-6">
-      <div className="flex flex-col justify-center items-center w-full">
-        {/* Background Section with Image */}
-        <div className="bg-gray-50 backdrop-blur-sm w-full h-64 sm:h-72 md:h-80 relative flex justify-center items-center">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-white to-gray-50 px-4 sm:px-6 py-6">
+      
+      {/* Social Icons (top on mobile) */}
+      <motion.div
+        className="flex justify-center gap-4 mb-6 order-first md:order-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-xl sm:text-2xl text-blue-600 hover:text-blue-800 transition"
+          >
+            <FaLinkedin />
+          </motion.div>
+        </a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-xl sm:text-2xl text-gray-800 hover:text-black transition"
+          >
+            <FaGithub />
+          </motion.div>
+        </a>
+        <a href="https://wa.me/your_number" target="_blank" rel="noopener noreferrer">
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-xl sm:text-2xl text-green-500 hover:text-green-700 transition"
+          >
+            <BsWhatsapp />
+          </motion.div>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-xl sm:text-2xl text-blue-700 hover:text-blue-900 transition"
+          >
+            <FaFacebook />
+          </motion.div>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-xl sm:text-2xl text-red-600 hover:text-red-800 transition"
+          >
+            <FaYoutube />
+          </motion.div>
+        </a>
+      </motion.div>
+
+      {/* Profile Image */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative"
+      >
+        <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full overflow-hidden shadow-xl">
           <img
             src={image}
             alt="Profile"
-            className="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 object-cover rounded-full shadow-lg absolute -bottom-16 sm:-bottom-20"
+            className="w-full h-full object-cover"
           />
         </div>
+      </motion.div>
 
-        {/* Text Section */}
-        <div className="text-center px-4 sm:px-8 md:px-16 max-w-3xl mt-24 sm:mt-28">
-          <motion.h1
-            className="text-lg sm:text-[18px] md:text-2xl lg:text-43xl font-bold mb-4"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Welcome to My Portfolio
-          </motion.h1>
+      {/* Name and Tagline */}
+      <motion.h1
+        className="text-center text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mt-6"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        Welcome to My Portfolio
+      </motion.h1>
 
-          <motion.p
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 mb-6"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            I'm a Full Stack MERN Developer passionate about building high-performance web applications with great user experiences.
-          </motion.p>
-
-          {/* Social Media Links */}
-          <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <a
-              href="https://www.linkedin.com/feed/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-2xl sm:text-3xl text-blue-600 hover:text-blue-800 transition"
-              >
-                <FaLinkedin />
-              </motion.div>
-            </a>
-
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-            >
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-2xl sm:text-3xl text-gray-800 hover:text-black transition"
-              >
-                <FaGithub />
-              </motion.div>
-            </a>
-
-            <a
-              href="https://wa.me/your_number"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-            >
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-2xl sm:text-3xl text-green-500 hover:text-green-700 transition"
-              >
-                <BsWhatsapp />
-              </motion.div>
-            </a>
-
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-2xl sm:text-3xl text-blue-700 hover:text-blue-900 transition"
-              >
-                <FaFacebook />
-              </motion.div>
-            </a>
-
-            <a
-              href="https://www.youtube.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-            >
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-2xl sm:text-3xl text-red-600 hover:text-red-800 transition"
-              >
-                <FaYoutube />
-              </motion.div>
-            </a>
-          </div>
-        </div>
-      </div>
+      <motion.p
+        className="text-center text-sm sm:text-base md:text-lg text-gray-600 mt-4 max-w-xl"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+      >
+        I'm a Full Stack MERN Developer passionate about building high-performance, scalable, and user-friendly web applications.
+      </motion.p>
     </div>
   );
 }
 
 export default HeroPage;
+
+
 
 
 
