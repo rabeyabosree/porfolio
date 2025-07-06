@@ -2,104 +2,112 @@ import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaFacebook, FaYoutube } from "react-icons/fa";
 import { BsWhatsapp } from "react-icons/bs";
 import image from "../../assets/profile2.jpg";
+import { Link } from "react-router-dom";
 
 function HeroPage() {
+  const socialIcons = [
+    { icon: <FaLinkedin />, href: "https://www.linkedin.com/feed/" },
+    { icon: <FaGithub />, href: "https://github.com/" },
+    { icon: <BsWhatsapp />, href: "https://wa.me/your_number" },
+    { icon: <FaFacebook />, href: "https://www.facebook.com/" },
+    { icon: <FaYoutube />, href: "https://www.youtube.com/" },
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-white to-gray-50 px-4 sm:px-6 py-6">
-      
-      {/* Social Icons (top on mobile) */}
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 px-4 sm:px-6 flex flex-col justify-center items-center">
+
+      {/* Mobile Social Icons Navbar */}
+      <motion.nav
+        className="fixed top-0 left-0 right-0 flex justify-center gap-6 py-3 z-50 md:hidden"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {socialIcons.map((social, i) => (
+          <a
+            key={i}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-blue-500 transition transform hover:scale-125 text-xl"
+          >
+            {social.icon}
+          </a>
+        ))}
+      </motion.nav>
+
+      {/* Spacer for mobile navbar */}
+      <div className="h-14 md:hidden"></div>
+
+      {/* Main content */}
       <motion.div
-        className="flex justify-center gap-4 mb-6 order-first md:order-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
+        className="flex flex-col items-center text-center"
       >
-        <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-xl sm:text-2xl text-blue-600 hover:text-blue-800 transition"
-          >
-            <FaLinkedin />
-          </motion.div>
-        </a>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-xl sm:text-2xl text-gray-800 hover:text-black transition"
-          >
-            <FaGithub />
-          </motion.div>
-        </a>
-        <a href="https://wa.me/your_number" target="_blank" rel="noopener noreferrer">
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-xl sm:text-2xl text-green-500 hover:text-green-700 transition"
-          >
-            <BsWhatsapp />
-          </motion.div>
-        </a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-xl sm:text-2xl text-blue-700 hover:text-blue-900 transition"
-          >
-            <FaFacebook />
-          </motion.div>
-        </a>
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-xl sm:text-2xl text-red-600 hover:text-red-800 transition"
-          >
-            <FaYoutube />
-          </motion.div>
-        </a>
+        {/* Profile Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative"
+        >
+          <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full overflow-hidden ">
+            <img
+              src={image}
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </motion.div>
+
+        {/* Name */}
+        <motion.h1
+          className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          Welcome to My Portfolio
+        </motion.h1>
+
+        {/* Tagline */}
+        <motion.p
+          className="mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-xl px-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          I'm a Full Stack MERN Developer passionate about building high-performance, scalable, and user-friendly web applications.
+        </motion.p>
+
+        {/* Desktop Social Icons */}
+        <motion.div
+          className="hidden md:flex justify-center gap-6 mt-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
+          {socialIcons.map((social, i) => (
+            <a
+              key={i}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-blue-500 transition transform hover:scale-125 text-2xl"
+            >
+              {social.icon}
+            </a>
+          ))}
+        </motion.div>
       </motion.div>
-
-      {/* Profile Image */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="relative"
-      >
-        <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full overflow-hidden shadow-xl">
-          <img
-            src={image}
-            alt="Profile"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </motion.div>
-
-      {/* Name and Tagline */}
-      <motion.h1
-        className="text-center text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mt-6"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-      >
-        Welcome to My Portfolio
-      </motion.h1>
-
-      <motion.p
-        className="text-center text-sm sm:text-base md:text-lg text-gray-600 mt-4 max-w-xl"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-      >
-        I'm a Full Stack MERN Developer passionate about building high-performance, scalable, and user-friendly web applications.
-      </motion.p>
     </div>
   );
 }
 
 export default HeroPage;
+
 
 
 

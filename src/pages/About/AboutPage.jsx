@@ -4,68 +4,55 @@ import image from "../../assets/portfolioimage.jpg";
 const AboutPage = () => {
   return (
     <motion.div
-      className="bg-gray-50 text-gray-800 min-h-screen flex justify-center items-center px-6 py-10"
+      className="flex items-center justify-center px-6 py-16 "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
       <motion.div
-        className="max-w-6xl w-full flex flex-col md:flex-row items-center bg-white shadow-lg rounded-2xl p-6 md:p-10 gap-10"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
+        className="max-w-5xl w-full overflow-hidden flex flex-col md:flex-row"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Image Section */}
-        <motion.div
-          className="w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-blue-500 shadow-md flex-shrink-0"
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
+        {/* Left - Image */}
+        <div className="md:w-1/2 relative  flex items-center justify-center p-8">
           <img
             src={image}
             alt="Profile"
-            className="w-full h-full object-cover"
+            className="rounded-full shadow-lg w-60 h-60 object-cover transform hover:scale-105 transition-transform duration-500"
           />
-        </motion.div>
+        </div>
 
-        {/* Text Section */}
-        <motion.div
-          className="flex-1 text-center md:text-left"
-          initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            About Me
+        {/* Right - Text */}
+        <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-center md:text-left">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+           Rabeya Bosri
           </h2>
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
-            Hi, I'm a passionate{" "}
-            <strong className="text-gray-800">MERN Stack Developer</strong> with expertise in building scalable, high-performance web applications. I specialize in{" "}
-            <strong>MongoDB, Express.js, React.js</strong>, and{" "}
-            <strong>Node.js</strong>, creating dynamic and user-friendly solutions.
+          <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6">
+            I'm a MERN Stack Developer specializing in creating fast, scalable, and visually stunning web applications. I love bringing ideas to life using MongoDB, Express.js, React.js, and Node.js.
           </p>
-
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <button
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               onClick={() => window.location.href = "/cv"}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
             >
               Download CV
             </button>
             <button
-              className="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-700"
               onClick={() => window.location.href = "https://github.com"}
+              className="border border-gray-800 text-gray-800 px-6 py-2 rounded-full hover:bg-gray-800 hover:text-white transition-all duration-300"
             >
-              GitHub
+              View GitHub
             </button>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
     </motion.div>
   );
 };
 
 export default AboutPage;
+
+
 

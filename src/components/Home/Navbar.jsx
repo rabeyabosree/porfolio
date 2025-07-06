@@ -11,7 +11,6 @@ const Navbar = () => {
   const navbarMenu = [
     { name: "Home", path: "/", icon: <GoHome size={24} /> },
     { name: "About", path: "/about", icon: <FaRegUser size={24} /> },
-    { name: "Services", path: "/service", icon: <RiServiceLine size={24} /> },
     { name: "Projects", path: "/project", icon: <GrProjects size={24} /> },
     { name: "Skills", path: "/skills", icon: <FaCodepen size={24} /> },
     { name: "Contact", path: "/contact", icon: <PiFlipVerticalLight size={24} /> }
