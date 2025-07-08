@@ -4,6 +4,7 @@ import ContactPage from './../contact/ContactPage';
 import MyProjects from './../projects/MyProjects';
 import SkillPage from './../skills/SkillPage';
 import Navbar from './../../components/Home/Navbar';
+import Footer from './../../components/common/FooterPage';
 
 
 function Home() {
@@ -15,6 +16,7 @@ function Home() {
       <MyProjects />
       <SkillPage />
       <ContactPage />
+      <Footer />
 
     </>
   )
