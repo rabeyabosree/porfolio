@@ -8,6 +8,7 @@ import image5 from "../../assets/mernstack5.webp";
 import image6 from "../../assets/mernstack6.webp";
 import image7 from "../../assets/mernstack7.png";
 import image8 from "../../assets/mernstack8.jpeg";
+import ProjectCart from './ProjectCart';
 
 const MyProjects = () => {
   const myProject = [
@@ -32,32 +33,15 @@ const MyProjects = () => {
         My Projects
       </motion.h1>
 
-      <motion.div
-        className="h-1 w-24 bg-blue-500 rounded-full mb-12"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1 }}
-        style={{ transformOrigin: "left" }}
-      />
+     <ProjectCart
+      title={"Online Learning Project"}
+      description={"a comprehensive online learning platform"}
+      tags={["React", "Node", "express", "mongodb"]}
+      img={image1}
+      liveLink={"https<lkaslfdk"}
+      github={"httpsakfj"}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl w-full">
-        {myProject.map((project, index) => (
-          <motion.div
-            key={index}
-            className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl bg-white transition-all duration-300"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-          >
-            <img
-              src={project.project}
-              alt={`Project ${index + 1}`}
-              className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </motion.div>
-        ))}
-      </div>
+      />
     </div>
   );
 };
