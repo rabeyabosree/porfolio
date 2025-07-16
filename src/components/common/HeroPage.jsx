@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaFacebook, FaYoutube } from "react-icons/fa";
 import { BsWhatsapp } from "react-icons/bs";
-import image from "../../assets/profile2.jpg";
+import image from "../../assets/home-bg.jpg";
 import { Link } from "react-router-dom";
 
 function HeroPage() {

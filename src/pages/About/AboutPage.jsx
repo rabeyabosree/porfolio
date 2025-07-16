@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import image from "../../assets/portfolioimage.jpg";
+import image from "../../assets/profile.jpg";
 
 const AboutPage = () => {
   return (
@@ -20,7 +20,7 @@ const AboutPage = () => {
           <img
             src={image}
             alt="Profile"
-            className="rounded-full shadow-lg w-60 h-60 object-cover transform hover:scale-105 transition-transform duration-500"
+            className="rounded-full shadow-lg w-40 h-40 object-cover transform hover:scale-105 transition-transform duration-500"
           />
         </div>
 
@@ -32,7 +32,7 @@ const AboutPage = () => {
           <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6">
             I'm a MERN Stack Developer specializing in creating fast, scalable, and visually stunning web applications. I love bringing ideas to life using MongoDB, Express.js, React.js, and Node.js.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <div className="flex flex-col px-7 sm:flex-row gap-4 justify-center md:justify-start">
             <button
               onClick={() => window.location.href = "/cv"}
               className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
