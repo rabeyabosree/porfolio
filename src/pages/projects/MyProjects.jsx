@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import image1 from "../../assets/mernstack1.png";
 import image2 from "../../assets/mernsstack2.jpg";
@@ -8,7 +7,7 @@ import image5 from "../../assets/mernstack5.webp";
 import image6 from "../../assets/mernstack6.webp";
 import image7 from "../../assets/mernstack7.png";
 import image8 from "../../assets/mernstack8.jpeg";
-import ProjectCart from './ProjectCart';
+import ProjectCart from "./ProjectCart";
 
 const MyProjects = () => {
   const myProject = [
@@ -25,7 +24,7 @@ const MyProjects = () => {
   return (
     <div className="py-16 px-4 bg-gradient-to-b from-white to-gray-50 text-gray-800 flex flex-col items-center justify-center">
       <motion.h1
-        className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 mb-4 text-center"
+        className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 mb-10 text-center"
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -33,20 +32,55 @@ const MyProjects = () => {
         My Projects
       </motion.h1>
 
-     <ProjectCart
-      title={"Online Learning Project"}
-      description={"a comprehensive online learning platform"}
-      tags={["React", "Node", "express", "mongodb"]}
-      img={image1}
-      liveLink={"https<lkaslfdk"}
-      github={"httpsakfj"}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl px-4">
+        <ProjectCart
+          title={"Online Learning Project"}
+          description={"A comprehensive online learning platform"}
+          tags={["React", "Node", "Express", "MongoDB"]}
+          img={image1}
+          liveLink={"https://mern-stack-project-liart.vercel.app/"}
+          github={"https://github.com/your-github"}
+        />
 
-      />
+        <ProjectCart
+          title={"Quiz App"}
+          description={"A quiz application with timer and scores"}
+          tags={["React", "Node", "MongoDB", "Redux"]}
+          img={image2}
+          liveLink={"https://quiz-app-e86m.vercel.app/"}
+          github={"https://github.com/your-github"}
+        />
+
+        <ProjectCart
+          title={"Course Platform"}
+          description={"Course platform with authentication and dashboard"}
+          tags={["React", "Express", "JWT", "Tailwind"]}
+          img={image3}
+          liveLink={"https://onlinelearning-c39p.vercel.app/"}
+          github={"https://github.com/your-github"}
+        />
+
+        {/* Optional: add more ProjectCart entries using myProject array */}
+        {/* Example:
+        {myProject.map((item, index) => (
+          <ProjectCart
+            key={index}
+            title={`Project ${index + 1}`}
+            description={"Short description here"}
+            tags={["React", "MongoDB"]}
+            img={item.project}
+            liveLink={"#"}
+            github={"#"}
+          />
+        ))}
+        */}
+      </div>
     </div>
   );
 };
 
 export default MyProjects;
+
 
 
 
