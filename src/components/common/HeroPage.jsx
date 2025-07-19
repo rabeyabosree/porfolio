@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaFacebook, FaYoutube } from "react-icons/fa";
 import { BsWhatsapp } from "react-icons/bs";
 import image from "../../assets/home-bg.jpg";
-import { Link } from "react-router-dom";
+import { HiDownload } from "react-icons/hi";
 
 function HeroPage() {
   const socialIcons = [
@@ -14,37 +14,15 @@ function HeroPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 px-4 sm:px-6 flex flex-col justify-center items-center">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-6 md:px-36 sm:px-4 relative">
 
-      {/* Mobile Social Icons Navbar */}
-      <motion.nav
-        className="fixed top-0 left-0 right-0 flex justify-center gap-6 py-3 z-50 md:hidden"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {socialIcons.map((social, i) => (
-          <a
-            key={i}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-blue-500 transition transform hover:scale-125 text-xl"
-          >
-            {social.icon}
-          </a>
-        ))}
-      </motion.nav>
-
-      {/* Spacer for mobile navbar */}
-      <div className="h-14 md:hidden"></div>
-
+     
       {/* Main content */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="flex flex-col items-center text-center"
+        className="flex flex-col items-center justify-center text-center"
       >
         {/* Profile Image */}
         <motion.div
@@ -53,7 +31,7 @@ function HeroPage() {
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full overflow-hidden ">
+          <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full overflow-hidden shadow-lg">
             <img
               src={image}
               alt="Profile"
@@ -62,29 +40,33 @@ function HeroPage() {
           </div>
         </motion.div>
 
-        {/* Name */}
-        <motion.h1
-          className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          Welcome to My Portfolio
-        </motion.h1>
+        {/* Name & Info */}
+        <div className="p-6 md:p-15 flex flex-col justify-center text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
+            Rabeya Bosri
+          </h2>
+          <h3 className="text-lg text-gray-600 font-medium mb-4">
+            Full Stack Web Developer
+          </h3>
+          <p className="text-gray- max-w-[700px] text-base md:text-lg leading-relaxed tracking-wide mb-6">
+            I'm a <span className="font-semibold text-gray-900">MERN Stack Developer</span> specializing in creating fast, scalable, and visually stunning web applications. I love bringing ideas to life using <span className="font-medium text-gray-800">MongoDB, Express.js, React.js, and Node.js</span>.
+          </p>
 
-        {/* Tagline */}
-        <motion.p
-          className="mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-xl px-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          I'm a Full Stack MERN Developer passionate about building high-performance, scalable, and user-friendly web applications.
-        </motion.p>
+          {/* Download CV Button */}
+          <div className="flex justify-center">
+            <a
+              href="/cv.pdf"
+              download
+              className="bg-gray-600 text-white px-6 py-2 rounded-full shadow-md flex items-center gap-2 justify-center hover:scale-105 transition-transform duration-300"
+            >
+              <HiDownload /> Download CV
+            </a>
+          </div>
+        </div>
 
-        {/* Desktop Social Icons */}
+        {/* Optional: Mobile Social Icons */}
         <motion.div
-          className="hidden md:flex justify-center gap-6 mt-8"
+          className="flex justify-center gap-6 mt-6 "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
@@ -95,7 +77,7 @@ function HeroPage() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-blue-500 transition transform hover:scale-125 text-2xl"
+              className="text-gray-600 hover:text-blue-500 transition transform hover:scale-125 text-xl"
             >
               {social.icon}
             </a>
@@ -107,6 +89,7 @@ function HeroPage() {
 }
 
 export default HeroPage;
+
 
 
 

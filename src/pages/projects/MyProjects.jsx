@@ -8,6 +8,11 @@ import image6 from "../../assets/mernstack6.webp";
 import image7 from "../../assets/mernstack7.png";
 import image8 from "../../assets/mernstack8.jpeg";
 import ProjectCart from "./ProjectCart";
+import { GrNode } from "react-icons/gr";
+import { SiExpress } from "react-icons/si";
+import { TbBrandMongodb } from "react-icons/tb";
+
+import { GrReactjs } from "react-icons/gr";
 
 const MyProjects = () => {
   const myProject = [
@@ -21,10 +26,12 @@ const MyProjects = () => {
     { project: image8 },
   ];
 
+  
+
   return (
-    <div className="py-16 px-4 bg-gradient-to-b from-white to-gray-50 text-gray-800 flex flex-col items-center justify-center">
+    <div className="py-16 px-4 bg-white flex flex-col items-center justify-center">
       <motion.h1
-        className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 mb-10 text-center"
+        className="text-2xl text-gray-800 md:text-3xl lg:text-4xl font-extrabold text-transparent bg-clip-text bg-gray-600 mb-10 mt-16 text-center"
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -32,32 +39,31 @@ const MyProjects = () => {
         My Projects
       </motion.h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full max-w-4xl px-4">
         <ProjectCart
           title={"Online Learning Project"}
-          description={"A comprehensive online learning platform"}
-          tags={["React", "Node", "Express", "MongoDB"]}
+          tags={[<GrReactjs />, <GrNode />, <SiExpress />,<TbBrandMongodb />]}
           img={image1}
           liveLink={"https://mern-stack-project-liart.vercel.app/"}
-          github={"https://github.com/your-github"}
+          github={"https://github.com/rabeyabosree/mern-Stack-Project"}
         />
 
         <ProjectCart
           title={"Quiz App"}
-          description={"A quiz application with timer and scores"}
-          tags={["React", "Node", "MongoDB", "Redux"]}
+          
+           tags={[<GrReactjs />, <GrNode />, <SiExpress />,<TbBrandMongodb />]}
           img={image2}
           liveLink={"https://quiz-app-e86m.vercel.app/"}
-          github={"https://github.com/your-github"}
+          github={"https://github.com/rabeyabosree/quizApp"}
         />
 
         <ProjectCart
           title={"Course Platform"}
-          description={"Course platform with authentication and dashboard"}
-          tags={["React", "Express", "JWT", "Tailwind"]}
+          
+           tags={[<GrReactjs />, <GrNode />, <SiExpress />,<TbBrandMongodb />]}
           img={image3}
           liveLink={"https://onlinelearning-c39p.vercel.app/"}
-          github={"https://github.com/your-github"}
+          github={"https://github.com/rabeyabosree/onlinelearning"}
         />
 
         {/* Optional: add more ProjectCart entries using myProject array */}

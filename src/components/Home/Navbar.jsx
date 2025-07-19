@@ -5,51 +5,46 @@ import { PiFlipVerticalLight } from "react-icons/pi";
 import { GrProjects } from "react-icons/gr";
 import { RiServiceLine } from "react-icons/ri";
 import Logo from "./Logo";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+
   const navbarMenu = [
-    { name: "Home", path: "/", icon: <GoHome size={24} /> },
-    { name: "About", path: "/about", icon: <FaRegUser size={24} /> },
-    { name: "Projects", path: "/project", icon: <GrProjects size={24} /> },
-    { name: "Skills", path: "/skills", icon: <FaCodepen size={24} /> },
-    { name: "Contact", path: "/contact", icon: <PiFlipVerticalLight size={24} /> }
+    { name: "Home", path: "/", icon: <GoHome size={20} /> },
+    { name: "About", path: "/about", icon: <FaRegUser size={20} /> },
+    { name: "Projects", path: "/project", icon: <GrProjects size={20} /> },
+    { name: "Skills", path: "/skills", icon: <FaCodepen size={20} /> },
+    { name: "Contact", path: "/contact", icon: <PiFlipVerticalLight size={20} /> },
   ];
 
   return (
-    <>
-      {/* Desktop Navbar */}
-      <header className="hidden md:block bg-white shadow-sm fixed w-full z-50">
-        <nav className="max-w-[1440px] mx-auto flex justify-between items-center p-4">
-          <Logo />
-          <div className="flex space-x-6 font-bold text-black">
-            {navbarMenu.map((menu, i) => (
-              <Link key={i} to={menu.path} className="hover:text-blue-500 transition">
-                {menu.name}
-              </Link>
-            ))}
-          </div>
-        </nav>
-      </header>
+    <header className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
+      <nav className="max-w-[1440px] mx-auto flex justify-center items-center p-4">
+       
 
-      {/* Mobile Bottom Navbar */}
-      <div className="md:hidden fixed bottom-0 w-full bg-white shadow-md flex justify-around py-2">
-        {navbarMenu.map((menu, i) => (
-          <Link
-            key={i}
-            to={menu.path}
-            className="flex flex-col items-center text-gray-700 hover:text-blue-600 transition"
-          >
-            {menu.icon}
-            <span className="text-[10px]">{menu.name}</span>
-          </Link>
-        ))}
-      </div>
-    </>
+       {/* Menu */}
+        <div className="flex items-center justify-center gap-9 md:gap-8 font-medium text-sm sm:text-base text-black">
+          {navbarMenu.map((menu, i) => (
+            <Link
+              key={i}
+              to={menu.path}
+              className={`flex items-center gap-1 hover:text-blue-600 transition ${
+                location.pathname === menu.path ? "text-blue-600 font-semibold" : ""
+              }`}
+            >
+              <span className="md:hidden text-gray-800">{menu.icon}</span>
+              <span className="hidden sm:inline">{menu.name}</span>
+            </Link>
+          ))}
+        </div>
+      </nav>
+    </header>
   );
 };
 
 export default Navbar;
+
 
 
 
