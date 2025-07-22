@@ -24,7 +24,7 @@ const ProjectCart = ({ title, tags, img, liveLink, github, index }) => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       className="bg-white/70 backdrop-blur-md border border-gray-200 rounded-xl 
-                 p-6 shadow-md flex flex-col items-center w-full max-w-[250px] mx-auto"
+                 p-6 shadow-md flex flex-col items-center w-full max-w-[280px] mx-auto"
     >
       {/* Title */}
       <h1 className="text-[16px] font-semibold text-gray-700 mb-3 text-center">
@@ -59,7 +59,7 @@ const ProjectCart = ({ title, tags, img, liveLink, github, index }) => {
           href={liveLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 
+          className="bg-gray-600 hover:bg-green-700 text-white px-3 py-1.5 
                      rounded-md transition duration-300"
         >
           Live Demo

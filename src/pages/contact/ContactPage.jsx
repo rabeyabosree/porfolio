@@ -4,11 +4,9 @@ import { FaEnvelope, FaUser, FaComments } from "react-icons/fa";
 const ContactPage = () => {
   return (
     <div className="max-w-xl mx-auto px-4 py-16 text-gray-800 flex items-center justify-center">
-      <div className="p-6 rounded-2xl bg-white shadow-md mt-16">
+      <div className="p-9 rounded-2xl bg-white shadow-md mt-[90px]">
         <h1 className="text-3xl font-bold mb-4 text-center text-gray-500">Contact Me</h1>
-        <p className="text-sm mb-6 text-center text-gray-500">
-          Reach out for any collaboration or project. I’ll respond as soon as I can.
-        </p>
+        
 
         <form className="space-y-5">
           {/* Name */}

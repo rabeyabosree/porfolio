@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import image1 from "../../assets/mernstack1.png";
 import image2 from "../../assets/mernsstack2.jpg";
@@ -8,25 +9,41 @@ import image6 from "../../assets/mernstack6.webp";
 import image7 from "../../assets/mernstack7.png";
 import image8 from "../../assets/mernstack8.jpeg";
 import ProjectCart from "./ProjectCart";
-import { GrNode } from "react-icons/gr";
+import { GrNode, GrReactjs } from "react-icons/gr";
 import { SiExpress } from "react-icons/si";
 import { TbBrandMongodb } from "react-icons/tb";
 
-import { GrReactjs } from "react-icons/gr";
-
 const MyProjects = () => {
-  const myProject = [
-    { project: image1 },
-    { project: image2 },
-    { project: image3 },
-    { project: image4 },
-    { project: image5 },
-    { project: image6 },
-    { project: image7 },
-    { project: image8 },
+  const allProjects = [
+    {
+      title: "Online Learning Project",
+      img: image1,
+      liveLink: "https://mern-stack-project-liart.vercel.app/",
+      github: "https://github.com/rabeyabosree/mern-Stack-Project",
+    },
+    {
+      title: "Quiz App",
+      img: image2,
+      liveLink: "https://quiz-app-e86m.vercel.app/",
+      github: "https://github.com/rabeyabosree/quizApp",
+    },
+    {
+      title: "Course Platform",
+      img: image3,
+      liveLink: "https://onlinelearning-c39p.vercel.app/",
+      github: "https://github.com/rabeyabosree/onlinelearning",
+    },
+    { title: "Project 4", img: image4, liveLink: "#", github: "#" },
+    { title: "Project 5", img: image5, liveLink: "#", github: "#" },
+    { title: "Project 6", img: image6, liveLink: "#", github: "#" },
+    { title: "Project 7", img: image7, liveLink: "#", github: "#" },
+    { title: "Project 8", img: image8, liveLink: "#", github: "#" },
   ];
 
-  
+  const techTags = [<GrReactjs />, <GrNode />, <SiExpress />, <TbBrandMongodb />];
+
+  const [showAll, setShowAll] = useState(false);
+  const displayedProjects = showAll ? allProjects : allProjects.slice(0, 3);
 
   return (
     <div className="py-16 px-4 bg-white flex flex-col items-center justify-center">
@@ -39,53 +56,33 @@ const MyProjects = () => {
         My Projects
       </motion.h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full max-w-4xl px-4">
-        <ProjectCart
-          title={"Online Learning Project"}
-          tags={[<GrReactjs />, <GrNode />, <SiExpress />,<TbBrandMongodb />]}
-          img={image1}
-          liveLink={"https://mern-stack-project-liart.vercel.app/"}
-          github={"https://github.com/rabeyabosree/mern-Stack-Project"}
-        />
-
-        <ProjectCart
-          title={"Quiz App"}
-          
-           tags={[<GrReactjs />, <GrNode />, <SiExpress />,<TbBrandMongodb />]}
-          img={image2}
-          liveLink={"https://quiz-app-e86m.vercel.app/"}
-          github={"https://github.com/rabeyabosree/quizApp"}
-        />
-
-        <ProjectCart
-          title={"Course Platform"}
-          
-           tags={[<GrReactjs />, <GrNode />, <SiExpress />,<TbBrandMongodb />]}
-          img={image3}
-          liveLink={"https://onlinelearning-c39p.vercel.app/"}
-          github={"https://github.com/rabeyabosree/onlinelearning"}
-        />
-
-        {/* Optional: add more ProjectCart entries using myProject array */}
-        {/* Example:
-        {myProject.map((item, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 w-full max-w-5xl px-5">
+        {displayedProjects.map((proj, index) => (
           <ProjectCart
             key={index}
-            title={`Project ${index + 1}`}
-            description={"Short description here"}
-            tags={["React", "MongoDB"]}
-            img={item.project}
-            liveLink={"#"}
-            github={"#"}
+            title={proj.title}
+            tags={techTags}
+            img={proj.img}
+            liveLink={proj.liveLink}
+            github={proj.github}
           />
         ))}
-        */}
       </div>
+
+      {allProjects.length > 3 && (
+        <button
+          onClick={() => setShowAll((prev) => !prev)}
+          className="mt-8 px-6 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 transition"
+        >
+          {showAll ? "Show Less" : "Show More"}
+        </button>
+      )}
     </div>
   );
 };
 
 export default MyProjects;
+
 
 
 
