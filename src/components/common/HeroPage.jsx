@@ -14,7 +14,7 @@ function HeroPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-6 md:px-36 sm:px-4 relative">
+    <div className="min-h-screen bg-white flex items-center justify-center px-6 md:px-36 sm:px-4 relative">
 
      
       {/* Main content */}

@@ -3,13 +3,11 @@ import { FaEnvelope, FaUser, FaComments } from "react-icons/fa";
 
 const ContactPage = () => {
   return (
-    <div className="max-w-xl mx-auto px-4 py-16 text-gray-800 flex items-center justify-center">
-      <div className="p-9 rounded-2xl bg-white shadow-md mt-[90px]">
-        <h1 className="text-3xl font-bold mb-4 text-center text-gray-500">Contact Me</h1>
-        
+    <div className="flex items-center justify-center px-4">
+      <div className="p-9 w-full max-w-sm sm:max-w-md md:max-w-lg rounded-2xl bg-white shadow-md">
+        <h1 className="text-2xl font-bold mb-6 text-center text-gray-900">Contact Me</h1>
 
-        <form className="space-y-5">
-          {/* Name */}
+        <form className="space-y-6">
           <div className="flex items-center gap-2">
             <FaUser className="text-gray-500 text-sm" />
             <input
@@ -19,7 +17,6 @@ const ContactPage = () => {
             />
           </div>
 
-          {/* Email */}
           <div className="flex items-center gap-2">
             <FaEnvelope className="text-gray-500 text-sm" />
             <input
@@ -29,7 +26,6 @@ const ContactPage = () => {
             />
           </div>
 
-          {/* Message */}
           <div className="flex items-start gap-2">
             <FaComments className="text-gray-500 text-sm mt-2" />
             <textarea
@@ -39,7 +35,6 @@ const ContactPage = () => {
             />
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full py-2 bg-gray-500 text-white text-sm font-semibold rounded-md hover:bg-gray-600 transition duration-300"
@@ -48,7 +43,6 @@ const ContactPage = () => {
           </button>
         </form>
       </div>
-
     </div>
   );
 };

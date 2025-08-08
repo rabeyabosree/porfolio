@@ -1,17 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaReact, FaNode, FaGithub, FaPython, FaAws } from "react-icons/fa";
+import { FaReact, FaNode, FaGithub, FaAws } from "react-icons/fa";
 import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
   SiTailwindcss,
   SiMongodb,
   SiExpress,
   SiVercel,
-  SiPostman,
-  SiFigma,
   SiNetlify,
+  SiFigma,
 } from "react-icons/si";
 
 const SkillPage = () => {
@@ -49,57 +45,56 @@ const SkillPage = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-white py-16 px-4">
+    <div className="min-h-screen bg-white py-10 px-4">
+      {/* Title */}
       <motion.h1
-        initial={{ opacity: 0, y: -30 }}
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-2xl mt-16 md:text-3xl lg:text-4xl font-bold text-center mb-7 text-transparent bg-clip-text bg-gray-500"
+        transition={{ duration: 0.5 }}
+        className="text-xl md:text-2xl font-bold text-center text-gray-700 mb-10"
       >
         My Skills
       </motion.h1>
 
-      <section className="mx-auto px-4 py-4 space-y-16">
+      {/* Skills Grid */}
+      <div className="max-w-4xl mx-auto space-y-12">
         {toolsSkills.map((section, i) => (
           <motion.div
             key={section.category}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center justify-center gap-9"
           >
-           
+            {/* Category Title */}
+            <h2 className="text-base font-semibold text-gray-600 mb-4">{section.category}</h2>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-7">
+            {/* Skill Items */}
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
               {section.items.map((skill, index) => (
                 <motion.div
-                  key={`${skill.name}-${index}`}
-                  initial={{ scale: 0.8, opacity: 0 }}
+                  key={skill.name}
+                  initial={{ scale: 0.9, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="flex flex-col items-center justify-center w-[130px] bg-green-50 border border-green-100 rounded-xl px-2 py-3 shadow hover:shadow-lg transition-all duration-300 relative"
+                  className="flex flex-col items-center text-center p-2 bg-gray-50 rounded-md border border-gray-100 hover:shadow-sm transition"
                 >
-                  <div
-                    className={`text-2xl mb-2 p-2 rounded-full text-white absolute -left-4 -top-4 ${skill.color} bg-green-400`}
-                  >
-                    {skill.icon}
-                  </div>
-                  <p className="text-sm font-semibold text-center text-gray-800 ">
-                    {skill.name}
-                  </p>
+                  <div className={`text-xl mb-1 ${skill.color}`}>{skill.icon}</div>
+                  <p className="text-xs text-gray-700">{skill.name}</p>
                 </motion.div>
               ))}
             </div>
           </motion.div>
         ))}
-      </section>
+      </div>
     </div>
   );
 };
 
 export default SkillPage;
+
+
 
 
 

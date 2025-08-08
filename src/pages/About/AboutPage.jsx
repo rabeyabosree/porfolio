@@ -3,22 +3,29 @@ import { motion } from "framer-motion";
 const AboutPage = () => {
   return (
     <motion.div
-      className="flex items-center justify-center px-4 py-[120px]"
+      className="flex flex-col items-center justify-center px-4 py-[120px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      
+      {/* Title with animation */}
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        About Me
+      </motion.h2>
+
       <motion.div
         className="flex flex-col md:flex-row items-center max-w-5xl w-full"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
       >
-        
-        {/* Right - Text */}
+        {/* Text Section */}
         <div className="p-6 md:p-12 flex flex-col justify-center text-center md:text-left">
-          
           <p className="text-gray-700 text-base md:text-lg leading-relaxed tracking-wide mb-6">
             I'm a <span className="font-semibold text-gray-600">MERN Stack Developer</span> specializing in creating fast, scalable, and visually stunning web applications. I love bringing ideas to life using <span className="font-medium text-gray-600">MongoDB, Express.js, React.js, and Node.js</span>.
           </p>
@@ -37,6 +44,8 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+
 
 
 

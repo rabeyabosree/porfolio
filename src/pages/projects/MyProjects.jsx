@@ -33,11 +33,8 @@ const MyProjects = () => {
       liveLink: "https://onlinelearning-c39p.vercel.app/",
       github: "https://github.com/rabeyabosree/onlinelearning",
     },
-    { title: "Project 4", img: image4, liveLink: "#", github: "#" },
-    { title: "Project 5", img: image5, liveLink: "#", github: "#" },
-    { title: "Project 6", img: image6, liveLink: "#", github: "#" },
-    { title: "Project 7", img: image7, liveLink: "#", github: "#" },
-    { title: "Project 8", img: image8, liveLink: "#", github: "#" },
+    { title: "Project 4", img: image4, liveLink: "https://new-project-orpin-gamma.vercel.app/", github: "https://github.com/rabeyabosree/newProject" },
+   
   ];
 
   const techTags = [<GrReactjs />, <GrNode />, <SiExpress />, <TbBrandMongodb />];
