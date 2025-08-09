@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const AboutPage = () => {
   return (
     <motion.div
-      className="flex flex-col items-center justify-center px-4 py-[120px]"
+      className="flex flex-col items-center justify-center px-4 py-16"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
