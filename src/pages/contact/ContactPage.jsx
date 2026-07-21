@@ -1,81 +1,147 @@
 import React, { useRef } from "react";
-import { FaEnvelope, FaUser, FaComments } from "react-icons/fa";
-import emailjs from 'emailjs-com';
+import { FaEnvelope, FaUser, FaComments, FaPhoneAlt, FaMapMarkerAlt, } from "react-icons/fa";
+import emailjs from "emailjs-com";
 
 const ContactPage = () => {
   const form = useRef();
-  // uncontrolledcomponent case state maintain outsite of react using useref
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      import.meta.env.VITE_SERVICE_ID,       // Service ID from .env
-      import.meta.env.VITE_TEMPLATE_ID,      // Template ID from .env
-      form.current,                          // Form reference
-      import.meta.env.VITE_EMAIL_API_KEY     // Public Key from .env
-    )
-    .then(() => {
-      alert("Message sent successfully");
-      e.target.reset();
-    })
-    .catch(() => {
-      alert("Failed to send the message");
-    });
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAIL_API_KEY
+      ).then(() => {
+        alert("Message sent successfully!");
+        e.target.reset();
+      }).catch(() => {
+        alert("Failed to send message.");
+      });
   };
 
   return (
-    <div className="flex items-center justify-center py-16 px-4">
-      <div className="p-9 w-full max-w-sm sm:max-w-md md:max-w-lg rounded-2xl bg-white shadow-md">
-        <h1 className="text-2xl font-bold mb-6 text-center text-gray-900">Contact Me</h1>
+    <section className="py-20 px-8 md:px-12">
+      <div className="max-w-6xl mx-auto">
 
-        <form className="space-y-6" ref={form} onSubmit={sendEmail}>
-          
-          {/* Hidden Subject Field */}
-          <input type="hidden" name="subject" value="New Contact Form Submission" />
+        {/* heading */}
+        <div className="text-center mb-14">
+          <p className="text-green-500 uppercase tracking-[4px] mb-2">
+            Contact
+          </p>
 
-          <div className="flex items-center gap-2">
-            <FaUser className="text-gray-500 text-sm" />
-            <input
-              type="text"
-              name="name"
-              className="w-full text-sm p-2 border-b border-gray-300 focus:outline-none focus:border-gray-500"
-              placeholder="Your name"
-              required
-            />
+          <h2 className="text-4xl font-bold text-gray-900">
+            Get In Touch
+          </h2>
+
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+            Have a project in mind or want to discuss an opportunity?
+            Feel free to contact me.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-10">
+
+          {/* contact info */}
+          <div className="bg-gray-900 text-white rounded-3xl p-10">
+            <h3 className="text-3xl font-bold mb-8">
+              Contact Information
+            </h3>
+
+            <div className="space-y-8">
+
+              <div className="flex items-center gap-5">
+                <FaUser className="text-green-400 text-2xl" />
+                <div>
+                  <p className="text-gray-400 text-sm">Name</p>
+                  <p>Rabeya Bosri</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-5">
+                <FaEnvelope className="text-green-400 text-2xl" />
+                <div>
+                  <p className="text-gray-400 text-sm">Email</p>
+                  <p>bosrirabeya924@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-5">
+                <FaPhoneAlt className="text-green-400 text-2xl" />
+                <div>
+                  <p className="text-gray-400 text-sm">Phone</p>
+                  <p>01927623786</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-5">
+                <FaMapMarkerAlt className="text-green-400 text-2xl" />
+                <div>
+                  <p className="text-gray-400 text-sm">Location</p>
+                  <p>Brahmanbaria, Bangladesh</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <FaEnvelope className="text-gray-500 text-sm" />
-            <input
-              type="email"
-              name="email"
-              className="w-full text-sm p-2 border-b border-gray-300 focus:outline-none focus:border-gray-500"
-              placeholder="Your email"
-              required
-            />
+          {/* contact form */}
+          <div className="bg-white shadow-xl rounded-3xl p-10">
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
+
+              <input
+                type="hidden"
+                name="subject"
+                value="New Contact Form Submission"
+              />
+
+              <div>
+                <label className="font-medium">Your Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  className="w-full mt-2 border rounded-lg p-3 bg-gray-50 outline-none focus:border-green-500"
+                  placeholder="Enter your name"
+                />
+              </div>
+
+              <div>
+                <label className="font-medium">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="w-full mt-2 border rounded-lg p-3 bg-gray-50 outline-none focus:border-green-500"
+                  placeholder="Enter your email"
+                />
+              </div>
+
+              <div>
+                <label className="font-medium">Message</label>
+                <textarea
+                  name="message"
+                  rows="4"
+                  required
+                  className="w-full mt-2 border rounded-lg p-3 bg-gray-50 resize-none outline-none focus:border-green-500"
+                  placeholder="Write your message..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-3 rounded-xl bg-green-500 text-white font-semibold hover:bg-green-600 transition"
+              >
+                Send Message
+              </button>
+
+            </form>
           </div>
 
-          <div className="flex items-start gap-2">
-            <FaComments className="text-gray-500 text-sm mt-2" />
-            <textarea
-              className="w-full text-sm p-2 border-b border-gray-300 focus:outline-none focus:border-gray-500 resize-none"
-              rows="3"
-              placeholder="Your message"
-              name="message"
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full py-2 bg-gray-600 text-white text-sm font-semibold rounded-md hover:bg-gray-600 transition duration-300"
-          >
-            Send Message
-          </button>
-        </form>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

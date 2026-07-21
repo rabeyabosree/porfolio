@@ -1,20 +1,20 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from "react";
+import { motion } from "framer-motion";
 
-const ProjectCart = ({ title, tags, img, liveLink, github, index }) => {
-  // Animation variant for sliding in from left
+const ProjectCart = ({ title, desc, tags, img, liveLink, github, index }) => {
+
   const slideVariant = {
     hidden: { opacity: 0, x: -50 },
     visible: (i) => ({
       opacity: 1,
       x: 0,
       transition: {
-        delay: i * 0.2,
+        delay: i * 0.15,
         duration: 0.6,
-        ease: 'easeOut',
+        ease: "easeOut",
       },
     }),
-  }
+  };
 
   return (
     <motion.div
@@ -23,66 +23,69 @@ const ProjectCart = ({ title, tags, img, liveLink, github, index }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="bg-white/70 backdrop-blur-md border border-gray-200 rounded-xl 
-                 p-6 shadow-md flex flex-col items-center w-full max-w-[280px] mx-auto"
+      whileHover={{ y: -8 }}
+      className="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full p-4 md:p-8 mx-6 md:mx-10"
     >
-      {/* Title */}
-      <h1 className="text-[16px] font-semibold text-gray-700 mb-3 text-center">
-        {title}
-      </h1>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-1 mb-3 justify-center">
-        {tags.map((tag, i) => (
-          <span
-            key={i}
-            className="text-xs bg-gray-200 text-gray-700 px-2 py-[2px] rounded"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      {/* Image */}
-      <div className="w-full rounded-md overflow-hidden mb-4">
+      {/* img */}
+      <div className="overflow-hidden">
         <img
           src={img}
           alt={title}
-          className="object-cover h-32 w-full"
+          className="w-full h-52 p-4 rounded-xl object-cover hover:scale-105 hover:rounded-xl transition duration-500"
         />
       </div>
 
-      {/* Buttons */}
-      <div className="flex gap-3 text-sm">
-        {/* Live Demo Button */}
-        <a
-          href={liveLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-gray-600 hover:bg-green-700 text-white px-3 py-1.5 
-                     rounded-md transition duration-300"
-        >
-          Live Demo
-        </a>
+      {/*content */}
+      <div className="p-2 md:p-4 flex flex-col flex-1">
+        {/* title */}
+        <h2 className="text-lg font-semibold text-gray-800 mb-3">
+          {title}
+        </h2>
 
-        {/* Glassy GitHub Button */}
-        <a
-          href={github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-3 py-1.5 rounded-md text-gray-700 text-sm font-medium
-                     bg-white/20 border border-white/40 shadow-md backdrop-blur-md
-                     hover:bg-white/30 hover:shadow-lg transition duration-300"
-        >
-          Github Repo
-        </a>
+        {/* desc */}
+        <p className="text-gray-600 text-xs leading-5 min-h-[70px]">
+          {desc}
+        </p>
+
+        {/* tech stack */}
+        <div className="flex flex-wrap gap-2 mt-4 mb-4">
+          {tags.map((tag, i) => (
+            <span
+              key={i}
+              className="flex items-center justify-center w-6 h-6 p-1 rounded-full bg-gray-100 text-lg text-gray-700"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/*  btns */}
+        <div className="flex gap-3 mt-auto">
+          <a
+            href={liveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-sm text-center bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg transition"
+          >
+            Live Demo
+          </a>
+
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-sm text-center border border-gray-300 hover:bg-gray-100 text-gray-700 py-2 rounded-lg transition"
+          >
+            GitHub
+          </a>
+        </div>
+
       </div>
+
     </motion.div>
-  )
-}
+  );
+};
 
-export default ProjectCart
-
-
+export default ProjectCart;
 
 

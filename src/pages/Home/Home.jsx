@@ -10,7 +10,7 @@ import Footer from './../../components/common/FooterPage';
 function Home() {
   return (
     <>
-      <Navbar />
+     
       <HeroPage />
       <AboutPage />
       <MyProjects />

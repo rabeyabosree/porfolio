@@ -1,63 +1,85 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { FaReact, FaNode, FaGithub, FaAws } from "react-icons/fa";
-import {
-  SiTailwindcss,
-  SiMongodb,
-  SiExpress,
-  SiVercel,
-  SiNetlify,
-  SiFigma,
-} from "react-icons/si";
+import { FaReact, FaNode, FaGithub, } from "react-icons/fa";
+import { SiTailwindcss, SiMongodb, SiExpress, SiVercel, SiNetlify, } from "react-icons/si";
 
 const skills = [
-  { name: "React.js", icon: <FaReact />, color: "text-sky-500" },
-  { name: "Tailwind CSS", icon: <SiTailwindcss />, color: "text-cyan-400" },
-  { name: "Node.js", icon: <FaNode />, color: "text-green-600" },
-  { name: "Express.js", icon: <SiExpress />, color: "text-gray-800" },
-  { name: "MongoDB", icon: <SiMongodb />, color: "text-green-500" },
-  { name: "Vercel", icon: <SiVercel />, color: "text-black" },
-  { name: "Netlify", icon: <SiNetlify />, color: "text-green-400" },
-  { name: "AWS", icon: <FaAws />, color: "text-orange-400" },
-  { name: "GitHub", icon: <FaGithub />, color: "text-black" },
-  { name: "Figma", icon: <SiFigma />, color: "text-pink-500" },
+  { name: "React.js", icon: <FaReact />, type: "Frontend", color: "text-sky-500" },
+  { name: "Tailwind CSS", icon: <SiTailwindcss />, type: "UI Design", color: "text-cyan-400" },
+  { name: "Node.js", icon: <FaNode />, type: "Backend", color: "text-green-600" },
+  { name: "Express.js", icon: <SiExpress />, type: "Backend", color: "text-gray-800" },
+  { name: "MongoDB", icon: <SiMongodb />, type: "Database", color: "text-green-500" },
+  { name: "Vercel", icon: <SiVercel />, type: "Deployment", color: "text-black" },
+  { name: "Netlify", icon: <SiNetlify />, type: "Deployment", color: "text-teal-500" },
+  { name: "GitHub", icon: <FaGithub />, type: "Version Control", color: "text-black" },
 ];
 
 const SkillPage = () => {
   return (
-    <div className="py-12 px-4">
-      {/* Title */}
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10"
-      >
-        My Skills
-      </motion.h1>
+    <section className="py-20 px-5 md:px-10">
+      <div className="max-w-6xl mx-auto">
 
-      {/* Skills Grid */}
-      <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={skill.name}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-            viewport={{ once: true }}
-            className="relative bg-white/70 backdrop-blur-lg border border-white/40 shadow-lg rounded-xl p-5 flex flex-col items-center text-center hover:shadow-xl cursor-pointer transition"
-          >
-            <div
-              className={`text-3xl mb-3 ${skill.color}`}
+        {/* heading */}
+        <motion.div
+          initial={{ opacity: 0, y: -25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-14"
+        >
+          <p className="text-green-500 font-semibold uppercase tracking-[4px] mb-3">
+            Skills
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            My Technical Skills
+          </h2>
+
+          <p className="max-w-2xl mx-auto mt-5 text-gray-500 leading-8">
+            I specialize in building modern, responsive, and scalable MERN
+            stack applications using the latest frontend and backend
+            technologies.
+          </p>
+        </motion.div>
+
+        {/* skill card grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 mx-4">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{
+                y: -8,
+                scale: 1.03,
+              }}
+              transition={{
+                duration: 0.3,
+                delay: index * 0.05,
+              }}
+              viewport={{ once: true }}
+              className="bg-gray-50/70 backdrop-blur-lg rounded-2xl shadow-md hover:shadow-xl border border-gray-100 p-6 md:p-8 flex flex-col items-center text-center transition-all"
             >
-              {skill.icon}
-            </div>
-            <p className="text-sm font-medium text-gray-700">{skill.name}</p>
-          </motion.div>
-        ))}
+              <div className={`text-5xl md:text-6xl mb-5 ${skill.color}`}>
+                {skill.icon}
+              </div>
+
+              <h3 className="text-lg  font-semibold text-gray-800">
+                {skill.name}
+              </h3>
+
+              <p className="mt-2 text-sm text-gray-500">
+                {skill.type}
+              </p>
+
+              <div className="mt-6 w-full h-2 rounded-full bg-gray-200 overflow-hidden">
+                <div className="h-full w-full bg-green-500 rounded-full animate-progress"></div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
       </div>
-    </div>
+    </section>
   );
 };
 

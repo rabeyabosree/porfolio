@@ -15,19 +15,17 @@ function App() {
   return (
     // Wrap everything inside the Router
     <Router>
-      <Layout>
-        <Navbar />
-       
-        <Routes>
-          <Route path="/chat" element={<ChatApp />} />
+      <Routes>
+        <Route element={<Layout />} >
+          {/* <Route path="/chat" element={<ChatApp />} /> */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/project" element={<MyProjects />} />
           <Route path="/skills" element={<SkillPage />} />
           <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-   
-      </Layout>
+        </Route>
+
+      </Routes>
     </Router>
   );
 }

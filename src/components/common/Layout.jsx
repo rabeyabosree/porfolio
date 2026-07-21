@@ -1,9 +1,15 @@
+import { Outlet } from "react-router-dom"
+import Navbar from "../Home/Navbar"
 
 
-function Layout({ children }) {
+function Layout() {
     return (
         <div className='max-w-[1440px]'>
-            {children}
+           <Navbar/>
+
+           <main className='mt-16'>
+            <Outlet/>
+           </main>
         </div>
     )
 }
