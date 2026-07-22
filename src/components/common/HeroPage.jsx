@@ -213,11 +213,11 @@ import image from "../../assets/home-bg.jpg";
 
 function HeroPage() {
   const socialIcons = [
-    { icon: <FaLinkedin />, href: "https://www.linkedin.com/" },
-    { icon: <FaGithub />, href: "https://github.com/" },
-    { icon: <BsWhatsapp />, href: "https://wa.me/your_number" },
-    { icon: <FaFacebook />, href: "https://facebook.com/" },
-    { icon: <FaYoutube />, href: "https://youtube.com/" },
+    { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/rabeya-bosree/" },
+    { icon: <FaGithub />, href: "https://github.com/rabeyabosree" },
+    { icon: <BsWhatsapp />, href: "https://wa.me/01927623786" },
+    { icon: <FaFacebook />, href: "https://www.facebook.com/00rabeyabosri" },
+    { icon: <FaYoutube />, href: "https://www.youtube.com/@rabeyaBosri580" },
   ];
 
   return (

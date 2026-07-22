@@ -100,13 +100,24 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Mobile Button */}
+        {/* Mobile Button
         <button
           onClick={() => setIsMenu(!isMenu)}
           className="md:hidden text-right text-green-600 text-3xl"
         >
           {isMenu ? <VscClose /> : <CgMenuRight />}
-        </button>
+        </button> */}
+
+          {/* mobile header*/}
+         <div className="flex justify-end text-green-400 md:hidden">
+           <button
+             onClick={() => setIsMenu(!isMenu)}
+            className="text-3xl text-green-500"
+          >            {isMenu ? <VscClose /> : <CgMenuRight />}
+
+          </button>
+        </div>
+
 
 
 

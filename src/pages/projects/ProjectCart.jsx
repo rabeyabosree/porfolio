@@ -24,14 +24,14 @@ const ProjectCart = ({ title, desc, tags, img, liveLink, github, index }) => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       whileHover={{ y: -8 }}
-      className="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full p-4 md:p-8 mx-6 md:mx-10"
+      className="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full p-4 "
     >
       {/* img */}
       <div className="overflow-hidden">
         <img
           src={img}
           alt={title}
-          className="w-full h-52 p-4 rounded-xl object-cover hover:scale-105 hover:rounded-xl transition duration-500"
+          className="w-full h-52 p-2 rounded-xl object-cover hover:scale-105 hover:rounded-xl transition duration-500"
         />
       </div>
 

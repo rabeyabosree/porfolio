@@ -87,7 +87,7 @@ const ContactPage = () => {
           </div>
 
           {/* contact form */}
-          <div className="bg-white shadow-xl rounded-3xl p-10">
+          <div className="bg-white shadow-xl rounded-2xl border  p-10">
             <form ref={form} onSubmit={sendEmail} className="space-y-6">
 
               <input

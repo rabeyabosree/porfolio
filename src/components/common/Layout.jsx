@@ -7,7 +7,7 @@ function Layout() {
         <div className='max-w-[1440px]'>
            <Navbar/>
 
-           <main className='mt-16'>
+           <main className='mt-4 md:mt-18'>
             <Outlet/>
            </main>
         </div>

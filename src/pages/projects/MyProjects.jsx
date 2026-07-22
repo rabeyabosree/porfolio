@@ -49,7 +49,7 @@ const MyProjects = () => {
   ];
 
   const [showAll, setShowAll] = useState(false);
-  const displayedProjects = showAll ? allProjects : allProjects.slice(0, 3);
+  const displayedProjects = showAll ? allProjects : allProjects.slice(0, 4);
 
   return (
     <section className="py-20 px-7 md:mx-12">
