@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { FaEnvelope, FaUser, FaComments, FaPhoneAlt, FaMapMarkerAlt, } from "react-icons/fa";
 import emailjs from "emailjs-com";
+import { toast } from "react-toastify";
 
 const ContactPage = () => {
   const form = useRef();
@@ -15,10 +16,11 @@ const ContactPage = () => {
         form.current,
         import.meta.env.VITE_EMAIL_API_KEY
       ).then(() => {
-        alert("Message sent successfully!");
-        e.target.reset();
-      }).catch(() => {
-        alert("Failed to send message.");
+        toast.success("Message sent successfully!");
+        form.current.reset();
+      }).catch((error) => {
+console.log(error)
+        toast.error("Failed to send message.");
       });
   };
 
@@ -131,6 +133,7 @@ const ContactPage = () => {
 
               <button
                 type="submit"
+                onClick={sendEmail}
                 className="w-full py-3 rounded-xl bg-green-500 text-white font-semibold hover:bg-green-600 transition"
               >
                 Send Message
