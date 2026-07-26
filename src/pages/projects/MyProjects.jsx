@@ -1,44 +1,86 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import image1 from "../../assets/mernstack1.png";
-import image2 from "../../assets/mernsstack2.jpg";
-import image3 from "../../assets/mernstack3.png";
-import image4 from "../../assets/mernstack4.png";
+import image1 from "../../assets/project1.jpeg";
+import image2 from "../../assets/project2.jpeg";
+import image3 from "../../assets/project3.jpeg";
+import image4 from "../../assets/grocery.jpeg";
+import image5 from "../../assets/clothing.jpeg";
+import image6 from "../../assets/jewelery.jpeg";
+import image7 from "../../assets/beauty.jpeg";
+import image8 from "../../assets/quiz.jpeg";
 import ProjectCart from "./ProjectCart";
 import { GrNode, GrReactjs } from "react-icons/gr";
 import { SiExpress } from "react-icons/si";
 import { TbBrandMongodb } from "react-icons/tb";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+
+
 
 const MyProjects = () => {
+  const [showProject, setShowProject] = useState(false)
+
   const allProjects = [
     {
-      title: "Learning Platform",
-      desc: "A full-stack MERN learning platform where users can browse courses, enroll, manage lessons, and enjoy a modern responsive interface.",
+      title: "Secure E-Commerce Order Management System",
+      desc: "A full-stack e-commerce order management system featuring OTP-based order verification, fraud detection, risk scoring, order tracking, and anti-spam protection to minimize fake orders and enhance platform security.",
       img: image1,
-      liveLink: "https://mern-stack-project-liart.vercel.app/",
-      github: "https://github.com/rabeyabosree/mern-Stack-Project",
+      liveLink: "https://smart-cod-ten.vercel.app",
+      github: "https://github.com/rabeyabosree/SmartCOD/tree/main",
     },
     {
-      title: "Quiz Application",
-      desc: "An interactive quiz application with multiple-choice questions, score tracking, instant results, and a clean responsive React interface.",
+      title: "Service Marketplace Platform",
+      desc: "A full-stack service marketplace connecting customers with service providers through service listings, advanced search & filters, booking management, role-based dashboards, ratings & reviews, and a responsive, user-friendly interface.",
       img: image2,
+      liveLink: "https://local-service-finder-nine.vercel.app/",
+      github: "https://github.com/rabeyabosree/local_service_finder",
+    },
+    {
+      title: "Hostel Booking Platform",
+      desc: "A full-stack hostel booking platform with secure JWT authentication, role-based access, hostel management, Cloudinary image uploads, real-time chat, booking status tracking, and a RESTful API for a seamless booking experience.",
+      img: image3,
+      liveLink: "https://hostelbooking-beqy.vercel.app",
+      github: "https://github.com/rabeyabosree/hostelbooking",
+    },
+    {
+      title: "Grocery E-Commerce Website",
+      desc: "A responsive grocery shopping platform with categorized products, a clean UI, secure checkout, and real-time order tracking for a fast and seamless shopping experience.",
+      img: image4,
+      liveLink: "https://grocery-website-nu.vercel.app/",
+      github: "https://github.com/rabeyabosree/groceryWebsite",
+    },
+
+    {
+      title: "Jewelry E-Commerce Website",
+      desc: "A modern jewelry e-commerce platform featuring elegant product browsing, secure authentication, online payments, wishlist, order tracking, customer reviews, and a responsive design for a seamless shopping experience.",
+      img: image5,
+      liveLink: "https://jewelery-webite.vercel.app/",
+      github: "https://github.com/rabeyabosree/jeweleryWebite",
+    },
+    {
+      title: "Clothing E-Commerce Website",
+      desc: "A modern clothing e-commerce platform with secure authentication, online payment integration, customer accounts, order tracking, product reviews, an admin dashboard, and all essential features for a seamless fashion shopping experience.",
+      img: image6,
+      liveLink: "https://clothingwebsite-two.vercel.app/",
+      github: "https://github.com/rabeyabosree/clothingwebsite",
+    },
+    {
+      title: "Beauty E-Commerce Website",
+      desc: "A responsive beauty e-commerce website featuring product listings, product details, a shopping cart, cash-on-delivery checkout, and an easy-to-manage admin panel for seamless product management.",
+      img: image7,
+      liveLink: "https://beauty-website-rho.vercel.app/",
+      github: "https://github.com/rabeyabosree/beautyWebsite",
+    },
+    {
+      title: "Quiz App",
+      desc: "A simple quiz application with secure user login, interactive quizzes, real-time score calculation, and a clean, responsive interface for an engaging learning experience.",
+      img: image8,
       liveLink: "https://quiz-app-e86m.vercel.app/",
       github: "https://github.com/rabeyabosree/quizApp",
     },
-    {
-      title: "Course Platform",
-      desc: "A responsive educational platform where users can discover online courses with a modern UI and smooth user experience.",
-      img: image3,
-      liveLink: "https://onlinelearning-c39p.vercel.app/",
-      github: "https://github.com/rabeyabosree/onlinelearning",
-    },
-    {
-      title: "Modern MERN Website",
-      desc: "A modern full-stack web application featuring reusable components, responsive layouts, REST APIs, authentication, and optimized performance.",
-      img: image4,
-      liveLink: "https://new-project-orpin-gamma.vercel.app/",
-      github: "https://github.com/rabeyabosree/newProject",
-    },
+
   ];
 
   const techTags = [
@@ -48,11 +90,10 @@ const MyProjects = () => {
     <TbBrandMongodb />,
   ];
 
-  const [showAll, setShowAll] = useState(false);
-  const displayedProjects = showAll ? allProjects : allProjects.slice(0, 4);
+  const displayedProjects = showProject ? allProjects : allProjects.slice(0, 4);
 
   return (
-    <section className="py-20 px-7 md:mx-12">
+    <section className="pt-20 px-7 md:mx-12">
       <div className="max-w-6xl mx-auto">
 
         {/* heading */}
@@ -108,17 +149,26 @@ const MyProjects = () => {
           ))}
         </div>
 
-        {/* show more btn */}
-        {allProjects.length > 3 && (
-          <div className="flex justify-center mt-12">
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="px-8 py-3 rounded-full bg-green-500 text-white font-medium hover:bg-green-600 transition duration-300"
-            >
-              {showAll ? "Show Less" : "Show More"}
-            </button>
-          </div>
-        )}
+        {/* see all projects btn */}
+        {/* <div className="text-right flex ">
+          <Link to={"/project"}
+            className="flex items-center justify-between gap-1 mx-auto mt-8 px-6 py-3 text-green-600 hover:text-green-600 underline font-semibold rounded-lg transition">
+            See all <IoIosArrowRoundForward />
+          </Link>
+        </div> */}
+
+        <button
+          onClick={() => setShowProject(!showProject)}
+          className="inline-flex items-center  gap-2 pt-4 px-2 underline text-green-500 font-medium hover:text-green-600 transition-all duration-300"
+        >
+          <span>{showProject ? "See Less" : "See More"}</span>
+
+          {showProject ? (
+            <IoIosArrowUp className="text-lg" />
+          ) : (
+            <IoIosArrowDown className="text-lg" />
+          )}
+        </button>
 
       </div>
     </section>

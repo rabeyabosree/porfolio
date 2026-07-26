@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const ProjectCart = ({ title, desc, tags, img, liveLink, github, index }) => {
+  const [expended, setExpended] = useState({});
+
+  // toogle description
+  const toogleDescription = (id) => {
+    setExpended((prevState) => {
+      return {
+        ...prevState, [id]: !prevState[id]
+      }
+    })
+
+  }
 
   const slideVariant = {
     hidden: { opacity: 0, x: -50 },
@@ -44,8 +55,19 @@ const ProjectCart = ({ title, desc, tags, img, liveLink, github, index }) => {
 
         {/* desc */}
         <p className="text-gray-600 text-xs leading-5 min-h-[70px]">
-          {desc}
+          {expended[index] ? desc : `${desc.substring(0, 130)}...`}
+          {/* desc toogle btn */}
+          <button onClick={() => toogleDescription(index)} className="pl-1 underline text-green-500 hover:text-green-600">
+            {expended[index] ? (
+              <span className="text-green-500 hover:text-green-600 text-xs">read less</span>
+            ) :
+              (
+                <span className="text-green-500 hover:text-green-600 text-xs">read more</span>
+              )}
+          </button>
         </p>
+
+
 
         {/* tech stack */}
         <div className="flex flex-wrap gap-2 mt-4 mb-4">

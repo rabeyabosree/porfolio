@@ -19,13 +19,12 @@ const ContactPage = () => {
         toast.success("Message sent successfully!");
         form.current.reset();
       }).catch((error) => {
-console.log(error)
         toast.error("Failed to send message.");
       });
   };
 
   return (
-    <section className="py-20 px-8 md:px-12">
+    <section className="pt-20 px-8 md:px-12">
       <div className="max-w-6xl mx-auto">
 
         {/* heading */}

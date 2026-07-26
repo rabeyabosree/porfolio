@@ -7,10 +7,12 @@ import Navbar from './../../components/Home/Navbar';
 import Footer from './../../components/common/FooterPage';
 
 
+
+
 function Home() {
   return (
     <>
-     
+
       <HeroPage />
       <AboutPage />
       <MyProjects />

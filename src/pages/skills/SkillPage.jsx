@@ -15,7 +15,7 @@ const skills = [
 
 const SkillPage = () => {
   return (
-    <section className="py-20 px-5 md:px-10">
+    <section className="pt-20 px-5 md:px-10">
       <div className="max-w-6xl mx-auto">
 
         {/* heading */}
